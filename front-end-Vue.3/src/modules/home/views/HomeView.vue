@@ -1,3 +1,3 @@
 <template>
-  <p>hoi</p>
+  <p>Catalogo de criptos con info</p>
 </template>
