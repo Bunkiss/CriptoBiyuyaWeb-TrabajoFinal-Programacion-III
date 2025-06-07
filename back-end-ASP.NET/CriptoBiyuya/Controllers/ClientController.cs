@@ -2,6 +2,7 @@
 using CriptoBiyuya.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 
 namespace CriptoBiyuya.Controllers
@@ -21,13 +22,22 @@ namespace CriptoBiyuya.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClientDTO>>> Get()
         {
-            var clients = await _context.Clients.ToListAsync();
+            var clients = await _context.Clients.Include(x => x.transactions).ToListAsync();
 
             var clientsDTO = clients.Select(n => new ClientDTO
             {
                 id = n.id,
                 email = n.email,
-                name = n.name
+                name = n.name,
+                transactions = n.transactions?.Select(t => new TransactionDTO
+                {
+                    id = t.id,
+                    crypto_code = t.crypto_code,
+                    action = t.action,
+                    crypto_amount = t.crypto_amount,
+                    money = t.money,
+                    datetime = t.datetime,
+                }).ToList()
             }).ToList();
 
             return Ok(clientsDTO);
@@ -60,7 +70,7 @@ namespace CriptoBiyuya.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Client>> Get(int id)
         {
-            var client = await _context.Clients.FirstOrDefaultAsync(x => x.id == id);
+            var client = await _context.Clients.Include(x => x.transactions).FirstOrDefaultAsync(x => x.id == id);
 
             if (client == null)
             {
@@ -71,14 +81,23 @@ namespace CriptoBiyuya.Controllers
             {
                 id = client.id,
                 name = client.name,
-                email = client.email
+                email = client.email,
+                transactions = client.transactions?.Select(t => new TransactionDTO
+                {
+                    id = t.id,
+                    crypto_code = t.crypto_code,
+                    action = t.action,
+                    crypto_amount = t.crypto_amount,
+                    money = t.money,
+                    datetime = t.datetime
+                }).ToList()
             };
 
             return Ok(clientDTO);
         }
 
         /* -------- PUT -------- */
-
+        /*
         [HttpPut("{id}")]
         public async Task<ActionResult<Client>> Put(int id, ClientDTO clientDTO)
         {
@@ -95,7 +114,7 @@ namespace CriptoBiyuya.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
+        } */
 
         /* -------- DELETE -------- */
 

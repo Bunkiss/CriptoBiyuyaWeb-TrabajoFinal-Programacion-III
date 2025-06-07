@@ -20,8 +20,7 @@ namespace CriptoBiyuya.Models
         public DateTime datetime { get; set; } //"yyyy-MM-dd HH:mm"
         [ForeignKey("Client")]
         public int client_id { get; set; }
-        [Required]
-        public Client client { get; set; }
+        public Client? client { get; set; }
 
     }
 }

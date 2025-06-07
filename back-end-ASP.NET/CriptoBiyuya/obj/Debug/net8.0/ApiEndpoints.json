@@ -73,37 +73,6 @@
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
-    "Method": "Put",
-    "RelativePath": "api/Client/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "clientDTO",
-        "Type": "CriptoBiyuya.DTOs.ClientDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "CriptoBiyuya.Models.Client",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CriptoBiyuya.Controllers.ClientController",
     "Method": "Delete",
     "RelativePath": "api/Client/{id}",
     "HttpMethod": "DELETE",

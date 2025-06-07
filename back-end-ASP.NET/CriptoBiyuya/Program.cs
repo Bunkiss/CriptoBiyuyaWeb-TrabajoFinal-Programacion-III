@@ -14,15 +14,17 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 builder.Services.AddCors(options => //  --  POLITICA TEMPORAL  --
 {
-    options.AddPolicy("permitirTodo", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("null").AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
 
-app.UseCors("permitirTodo");  // Usamos la politica temporal
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

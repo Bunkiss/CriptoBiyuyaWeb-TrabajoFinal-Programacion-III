@@ -278,3 +278,4 @@ C:\Users\Mestas\Programación\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\back
 C:\Users\Mestas\Programación\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\back-end-ASP.NET\CriptoBiyuya\obj\Debug\net8.0\CriptoBiyuya.pdb
 C:\Users\Mestas\Programación\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\back-end-ASP.NET\CriptoBiyuya\obj\Debug\net8.0\CriptoBiyuya.genruntimeconfig.cache
 C:\Users\Mestas\Programación\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\back-end-ASP.NET\CriptoBiyuya\obj\Debug\net8.0\ref\CriptoBiyuya.dll
+C:\Users\Mestas\Programación\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\back-end-ASP.NET\CriptoBiyuya\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

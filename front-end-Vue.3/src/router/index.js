@@ -10,9 +10,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/nueva-compra',
-      name: 'NuevaCompraView',
-      component: () => import('@/modules/compra/views/RealizarCompraView.vue'),
+      path: '/compra',
+      name: 'CompraView',
+      component: () => import('@/modules/compra/views/CompraView.vue'),
     },
   ],
 })

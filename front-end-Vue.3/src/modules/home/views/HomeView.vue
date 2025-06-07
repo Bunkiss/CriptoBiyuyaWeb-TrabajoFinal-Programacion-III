@@ -1,3 +1,7 @@
 <template>
-  <p>Catalogo de criptos con info</p>
+  <RouterLink to="/compra">NuevaCompra</RouterLink>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
