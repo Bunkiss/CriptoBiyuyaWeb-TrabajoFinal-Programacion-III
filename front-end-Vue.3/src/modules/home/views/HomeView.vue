@@ -1,4 +1,6 @@
 <template>
+  <RouterLink to="/historial">Historial</RouterLink>
+  <br>
   <RouterLink to="/compra">NuevaCompra</RouterLink>
 </template>
 

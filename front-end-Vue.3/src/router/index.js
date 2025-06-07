@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'CompraView',
       component: () => import('@/modules/compra/views/CompraView.vue'),
     },
+    {
+      path: '/historial',
+      name: 'ClientsView',
+      component: () => import('@/modules/cliente/views/ClientsView.vue'),
+    },
   ],
 })
 
