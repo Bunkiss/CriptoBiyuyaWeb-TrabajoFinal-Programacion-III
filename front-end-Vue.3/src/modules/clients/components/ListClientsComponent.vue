@@ -7,6 +7,11 @@
         {{ client.name }}
       </option>
     </select>
+    <!--Los links te envían a TransactionView en donde el select de cliente estará preseleccionado
+    según el cliente seleccionado en la vista actual-->
+    <!--<RouterLink to="/transaction" :client_id="client.id :action="purchase">Nueva Compra</RouterLink>-->
+    <!--<RouterLink to="/transaction" :client_id="client.id :action="sale">Nueva Venta</RouterLink>-->
+    <!--A checkear que esa sea la sintaxis correcta. Lo que se busca es heredar los valores a traves de defineProps-->
   </div>
 </template>
 

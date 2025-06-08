@@ -1,7 +1,7 @@
 <template>
   <RouterLink to="/historial">Historial</RouterLink>
   <br>
-  <RouterLink to="/compra">NuevaCompra</RouterLink>
+  <RouterLink to="/transaction">Nueva Transacción</RouterLink>
 </template>
 
 <script setup>

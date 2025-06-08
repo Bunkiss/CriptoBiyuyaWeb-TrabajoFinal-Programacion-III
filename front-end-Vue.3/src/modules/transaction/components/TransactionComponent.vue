@@ -1,5 +1,13 @@
 // src/modules/compra/components/CompraComponent.vue
-<template>
+<template> <!--Utilizar v-model (https://www.youtube.com/watch?v=Q8tS_upHm6Q)
+            Revisar vee validate(https://www.youtube.com/watch?v=TeCLj-bax54)-->
+
+            <!--Utilizar computed para realizar el calculo de money-->
+
+            <!--Utilizar watch para actualizar el valor de money en el template-->
+
+            <!--Utilizar defineProps para heredar el valor de client_id y el valor de action desde ListClientComponent.vue-->
+
   <Form @submit="onSubmit" :validation-schema="schema" :initial-values="{ crypto_code: 'BTC', crypto_amount: 0.00001, client_id: 1, }"> <!--cliente id por defecto temporalmente-->
     <div>
       <label for="crypto_code">Criptomoneda</label>

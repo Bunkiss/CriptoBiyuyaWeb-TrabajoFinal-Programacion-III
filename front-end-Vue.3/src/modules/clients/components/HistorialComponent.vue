@@ -18,6 +18,9 @@
           <td>{{ tx.crypto_amount }}</td>
           <td>{{ tx.money }}</td>
           <td>{{ tx.datetime }}</td>
+          <!--boton VER-->
+          <!--boton EDITAR-->
+          <!--boton BORRAR-->
         </tr>
       </tbody>
     </table>

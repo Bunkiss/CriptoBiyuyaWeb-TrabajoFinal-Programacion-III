@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import CompraComponent from '../components/CompraComponent.vue';
+import CompraComponent from '../components/TransactionComponent.vue';
 </script>

@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/compra',
-      name: 'CompraView',
-      component: () => import('@/modules/compra/views/CompraView.vue'),
+      path: '/transaction',
+      name: 'TransactionView',
+      component: () => import('@/modules/transaction/views/TransactionView.vue'),
     },
     {
       path: '/historial',
       name: 'ClientsView',
-      component: () => import('@/modules/cliente/views/ClientsView.vue'),
+      component: () => import('@/modules/client/views/ClientsView.vue'),
     },
   ],
 })
