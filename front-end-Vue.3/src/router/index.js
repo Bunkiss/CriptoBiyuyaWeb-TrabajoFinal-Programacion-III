@@ -11,13 +11,13 @@ const router = createRouter({
     },
     {
       path: '/transaction',
-      name: 'TransactionView',
+      name: 'Transaction',
       component: () => import('@/modules/transaction/views/TransactionView.vue'),
     },
     {
       path: '/historial',
-      name: 'ClientsView',
-      component: () => import('@/modules/client/views/ClientsView.vue'),
+      name: 'Clients',
+      component: () => import('@/modules/clients/views/ClientsView.vue'),
     },
   ],
 })

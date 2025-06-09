@@ -1,15 +1,11 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const api_url = 'https://localhost:7261/api/Transaction';
-
-export const postTransaction = async (transaction) => {
+export const postTransaction = async (transactionData) => {
   try {
-    const response = await axios.post(api_url, transaction);
-    return {
-      success: true,
-      data: response.data
-    };
+    const response = await axios.post('https://localhost:7261/api/Transaction', transactionData)
+    return response.data
   } catch (error) {
-    throw new Error('Error al realizar la transacción: ' + error);
+    console.error('Error al enviar transacción:', error)
+    throw error
   }
-};
+}

@@ -1,37 +1,14 @@
-import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { defineStore } from 'pinia'
+import { postTransaction } from '@/helpers/postTransaction'
 
-export const useTransactionStore = defineStore('transaction', () => {
-  const transaction = ref(null);
-  const resultado = ref(null); // Resultado del post: { money, datetime }
-  const enviado = ref(false);
-
-  const setCompra = (data) => {
-    transaction.value = data;
-  };
-
-  const setResultado = ({ money, datetime }) => {
-    resultado.value = { money, datetime };
-  };
-
-  const marcarComoEnviado = () => {
-    enviado.value = true;
-  };
-
-  const resetear = () => {
-    transaction.value = null;
-    resultado.value = null;
-    enviado.value = false;
-  };
-
-  return {
-    transaction,
-    resultado,
-    enviado,
-    setCompra,
-    setResultado,
-    marcarComoEnviado,
-    resetear
-  };
-});
-
+export const useTransactionStore = defineStore('transactionStore', {
+  state: () => ({
+    transactions: [],
+  }),
+  actions: {
+    async createTransaction(data) {
+      const nueva = await postTransaction(data)
+      this.transactions.push(nueva)
+    },
+  },
+})

@@ -1,138 +1,182 @@
-// src/modules/compra/components/CompraComponent.vue
-<template> <!--Utilizar v-model (https://www.youtube.com/watch?v=Q8tS_upHm6Q)
-            Revisar vee validate(https://www.youtube.com/watch?v=TeCLj-bax54)-->
+<template>
+  <div class="transaction-form">
+    <h2 class="text-xl mb-4">
+      {{ isPurchase ? 'Nueva Compra' : 'Nueva Venta' }}
+    </h2>
 
-            <!--Utilizar computed para realizar el calculo de money-->
-
-            <!--Utilizar watch para actualizar el valor de money en el template-->
-
-            <!--Utilizar defineProps para heredar el valor de client_id y el valor de action desde ListClientComponent.vue-->
-
-  <Form @submit="onSubmit" :validation-schema="schema" :initial-values="{ crypto_code: 'BTC', crypto_amount: 0.00001, client_id: 1, }"> <!--cliente id por defecto temporalmente-->
-    <div>
-      <label for="crypto_code">Criptomoneda</label>
-      <Field as="select" name="crypto_code" id="crypto_code">
-        <option value="BTC">BTC</option>
-        <option value="ETH">ETH</option>
-        <option value="USDC">USDC</option>
-      </Field>
-      <ErrorMessage name="crypto_code" />
-    </div>
-
-    <div>
-      <label>
-        <Field type="radio" name="action" value="purchase" /> Comprar
-      </label>
-      <label>
-        <Field type="radio" name="action" value="sale" /> Vender
-      </label>
-      <ErrorMessage name="action" />
-    </div>
-<!--Crear el get/use Clients /store
-    <div>
-      <label for="client_id">Cliente</label>
-      <Field as="select" name="client_id">
-        <option v-for="cliente in clients" :key="cliente.id" :value="cliente.id">
-          {{ cliente.name }}
-        </option>
-      </Field>
-      <ErrorMessage name="client_id" />
-    </div>
--->
-    <div>
-      <label for="client_id">Cliente</label>
-      <Field as="select" name="client_id" id="client_id">
-        <option value="1">Cliente Test</option>
-      </Field>
-      <ErrorMessage name="client_id" />
-    </div>
-
-    <div>
-      <label for="crypto_amount">Cantidad Cripto</label>
-      <Field name="crypto_amount" type="number" step="any" id="crypto_amount"/>
-      <ErrorMessage name="crypto_amount" />
-    </div>
-    <!-- Botón para calcular y mostrar resultado -->
-    <div>
-      <button type="button" @click="calcularConversion">Calcular</button>
-      <div v-if="conversionTexto">
-        {{ conversionTexto }}
+    <!-- Formulario validado con vee-validate -->
+    <Form :validation-schema="validationSchema" @submit="onSubmit">
+      <!-- Selección de criptomoneda -->
+      <div class="mb-4">
+        <label>Criptomoneda:</label>
+        <Field name="crypto_code" as="select" class="border p-2 w-full" v-model="cryptoCode">
+          <option value="">Seleccione una opción</option>
+          <option value="btc">Bitcoin (BTC)</option>
+          <option value="eth">Ethereum (ETH)</option>
+          <option value="usdc">USD Coin (USDC)</option>
+        </Field>
+        <ErrorMessage name="crypto_code" class="text-red-500 text-sm" />
       </div>
-    </div>
 
-    <button type="submit" v-if="!success">Enviar</button>
-    <div v-else>Enviado con éxito. ARS {{ money }} - {{ datetime }}</div>
-  </Form>
+      <!-- Ingreso de cantidad -->
+      <div class="mb-4">
+        <label>Cantidad:</label>
+        <Field
+          name="crypto_amount"
+          type="number"
+          step="0.00001"
+          class="border p-2 w-full"
+          v-model.number="cryptoAmount"
+        />
+        <ErrorMessage name="crypto_amount" class="text-red-500 text-sm" />
+      </div>
+
+      <!-- Selección de cliente -->
+      <div class="mb-4">
+        <label>Cliente:</label>
+        <Field name="client_id" as="select" class="border p-2 w-full">
+          <option v-for="client in clientStore.clients" :key="client.id" :value="client.id">
+            {{ client.name }}
+          </option>
+        </Field>
+        <ErrorMessage name="client_id" class="text-red-500 text-sm" />
+      </div>
+
+      <!-- Botón para calcular el valor de la transacción -->
+      <div class="mb-4">
+        <button
+          type="button"
+          class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded"
+          @click="convertirCrypto"
+          :disabled="!cryptoCode || !cryptoAmount"
+        >
+          Calcular valor en ARS
+        </button>
+      </div>
+
+      <!-- Valor estimado calculado -->
+      <div class="mb-4" v-if="money">
+        <p class="text-gray-700">
+          Valor en ARS: <strong>${{ money.toFixed(2) }}</strong>
+        </p>
+      </div>
+
+      <!-- Confirmación visual luego de enviar -->
+      <div v-if="showConfirmation" class="p-4 bg-green-100 text-green-700 rounded mb-4">
+        Transacción registrada por ${{ money.toFixed(2) }} a las {{ datetime }} <!--darle mejor formato al money y datetime-->
+      </div>
+
+      <!-- Botón de envío -->
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        {{ isPurchase ? 'Comprar' : 'Vender' }}
+      </button>
+    </Form>
+  </div>
 </template>
 
 <script setup>
-import { Form, Field, ErrorMessage, useForm } from 'vee-validate';
-import { ref, onMounted } from 'vue';
-// import { useClientesStore } from '@/stores/clientesStore';
-import { useTransactions } from '@/composables/useTransactions';
-import { format } from 'date-fns'; //
-import { schema } from '@/modules/compra/schemas/validationTransactionSchema';
+import { ref, computed, onMounted } from 'vue'
+import { Form, Field, ErrorMessage, useForm } from 'vee-validate'
+import * as yup from 'yup'
+import { useTransaction } from '@/composables/useTransactions'
+import { useClients } from '@/composables/useClients'
+import { useClientStore } from '@/stores/clientStore'
+import axios from 'axios'
 
-const { realizarCompra } = useTransactions();
-// const clients = useClientesStore().data;
-const money = ref(0);
-const datetime = ref('');
-const success = ref(false);
+// Props heredados desde el router (cliente y acción)
+const props = defineProps({
+  action: {
+    type: String,
+    required: true,
+    default: 'purchase',
+    validator: (v) => ['purchase', 'sale'].includes(v),
+  },
+  client_id: {
+    type: Number,
+    default: null,
+  },
+})
 
-// --- CALCULAR COSTO/GANANCIA ---
+// Flags y estados reactivos
+const isPurchase = computed(() => props.action === 'purchase')
+const clientStore = useClientStore()
+const { createTransaction } = useTransaction()
+const money = ref(0)                // ARS calculado
+const datetime = ref('')           // Fecha y hora de envío
+const showConfirmation = ref(false) // Mensaje luego del POST
+const cryptoCode = ref('')
+const cryptoAmount = ref(null)
 
-const { values } = useForm();
-const conversionTexto = ref('');
-// const { value: cryptoCode } = useField('crypto_code');
-// const { value: cryptoAmount } = useField('crypto_amount');
+// Esquema de validación con yup
+const validationSchema = yup.object({
+  crypto_code: yup.string().required('La criptomoneda es obligatoria'),
+  crypto_amount: yup
+    .number()
+    .required('La cantidad es obligatoria')
+    .min(0.00001, 'La cantidad debe ser mayor a 0.00001'),
+  client_id: yup.number().required('Debe seleccionar un cliente'),
+})
 
-const calcularConversion = async () => {
-  const cryptoCode = values.crypto_code;
-  const cryptoAmount = values.crypto_amount;
+// Referencia al formulario y sus valores
+const { setFieldValue } = useForm()
 
-  if (!cryptoCode || !cryptoAmount) return;
+// Función para calcular el valor en ARS cuando el usuario hace clic
+const convertirCrypto = async () => {
+  if (!cryptoCode.value || !cryptoAmount.value) {
+    console.warn('Faltan datos para calcular.')
+    return
+  }
 
   try {
-    const response = await fetch(`https://criptoya.com/api/bybit/${cryptoCode}/ARS/1`);
-    const data = await response.json();
-    const precioARS = data.totalAsk || Object.values(data)[0];
-    const total = (precioARS * cryptoAmount).toFixed(2);
+    const res = await axios.get(
+      `https://criptoya.com/api/satoshitango/${cryptoCode.value}/ars`
+    )
+    const price = res.data.totalBid ?? res.data.ask ?? res.data.price
+    money.value = cryptoAmount.value * price
 
-    conversionTexto.value = `${Number(cryptoAmount).toFixed(5)} ${cryptoCode} = ${total} ARS`;
-  } catch (error) {
-    console.error(error);
-    conversionTexto.value = 'Error al calcular el precio.';
+    console.log(`Precio unitario: ${price}, Cantidad: ${cryptoAmount.value}, Total ARS: ${money.value}`)
+  } catch (err) {
+    console.error('Error al obtener el precio:', err)
   }
-};
-// -- valor por defecto
-onMounted(() => {
-  setTimeout(calcularConversion, 50); // mostrar el valor inicial y da tiempo a que se sincronicen los campos
-});
+}
 
-// --- POST ---
+// Auto set del cliente si viene por props    -   No esta seteando
+onMounted(async () => {
+  await useClients()
+  if (props.client_id) {
+    setFieldValue('client_id', props.client_id)
+  }
+})
 
-const onSubmit = async (values) => {  /* values contiene los datos del formulario validados */
-  const precio = await fetch(`https://criptoya.com/api/bybit/${values.crypto_code}/ARS/1`).then(r => r.json());
-  const precioARS = precio.totalAsk || Object.values(precio)[0];
-  money.value = (precioARS * values.crypto_amount).toFixed(2);
+// Función al enviar el formulario
+const onSubmit = async (values) => {
+  const now = new Date()
+  datetime.value = now.toISOString()
 
-  datetime.value = format(new Date(), 'yyyy-MM-dd HH:mm'); //new Date() crea un objeto de fecha y hora actual del sistema y format() lo hace uns tring legible
-
-  const body = {
-    ...values,            //este spread ... copia todas las propiedades de values
+  const payload = {
+    ...values,
+    action: props.action,
     money: money.value,
-    datetime: datetime.value
-  };
+    datetime: datetime.value,
+  }
 
-  await realizarCompra(body);
-  success.value = true;
-};
+  console.log('Payload a enviar:', payload)
+
+  try {
+    await createTransaction(payload)
+    showConfirmation.value = true
+  } catch (err) {
+    console.error('Error al crear transacción:', err)
+  }
+}
 </script>
 
 <style scoped>
-/* Estilos mínimos */
-div { margin-bottom: 1rem; }
-label { display: block; margin-bottom: 0.3rem; }
-input, select { width: 100%; padding: 0.4rem; }
-button { padding: 0.5rem 1rem; background: #333; color: white; border: none; border-radius: 5px; }
+.transaction-form {
+  max-width: 500px;
+  margin: auto;
+}
 </style>

@@ -1,25 +1,13 @@
-import { useTransactionStore } from '@/stores/transactionStore';
-import { postTransaction } from '@/helpers/postTransaction';
+import { useTransactionStore } from '@/stores/transactionStore'
 
-export const useTransactions = () => {
-  const transactionStore = useTransactionStore();
+export const useTransaction = () => {
+  const store = useTransactionStore()
 
-  const realizarCompra = async (formData) => {
-    // Guardamos datos en el store
-    transactionStore.setCompra(formData);
-
-    // Hacemos el post
-    const response = await postTransaction(formData);
-
-    if (response.success) {
-      transactionStore.setResultado(response.data);
-      transactionStore.marcarComoEnviado();
-    } else {
-      console.error('Error al realizar la compra');
-    }
-  };
+  const createTransaction = async (transactionData) => {
+    await store.createTransaction(transactionData)
+  }
 
   return {
-    realizarCompra
-  };
-};
+    createTransaction,
+  }
+}
