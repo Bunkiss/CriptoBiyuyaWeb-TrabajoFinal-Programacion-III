@@ -20,5 +20,7 @@ const action = route.query.action
 .transaction-view {
   padding: 2rem;
 }
+/*
+  Tomar de referencia del formulario de Biblioteca back-end MVC
+*/
 </style>
-

@@ -11,9 +11,9 @@
         <label>Criptomoneda:</label>
         <Field name="crypto_code" as="select" class="border p-2 w-full" v-model="cryptoCode">
           <option value="">Seleccione una opción</option>
-          <option value="btc">Bitcoin (BTC)</option>
-          <option value="eth">Ethereum (ETH)</option>
-          <option value="usdc">USD Coin (USDC)</option>
+          <option value="btc">{{formatCryptoName('btc')}}</option>
+          <option value="eth">{{formatCryptoName('eth')}}</option>
+          <option value="usdc">{{formatCryptoName('usdc')}}</option>
         </Field>
         <ErrorMessage name="crypto_code" class="text-red-500 text-sm" />
       </div>
@@ -57,22 +57,23 @@
       <!-- Valor estimado calculado -->
       <div class="mb-4" v-if="money">
         <p class="text-gray-700">
-          Valor en ARS: <strong>${{ money.toFixed(2) }}</strong>
+          Valor en ARS: <strong>{{ formattedMoney }}</strong>
         </p>
-      </div>
-
-      <!-- Confirmación visual luego de enviar -->
-      <div v-if="showConfirmation" class="p-4 bg-green-100 text-green-700 rounded mb-4">
-        Transacción registrada por ${{ money.toFixed(2) }} a las {{ datetime }} <!--darle mejor formato al money y datetime-->
       </div>
 
       <!-- Botón de envío -->
       <button
-        type="submit"
-        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
-        {{ isPurchase ? 'Comprar' : 'Vender' }}
-      </button>
+      {{ isPurchase ? 'Comprar' : 'Vender' }}
+    </button>
+
+    <!-- Confirmación visual luego de enviar -->
+    <div v-if="showConfirmation" class="p-4 bg-green-100 text-green-700 rounded mb-4">
+      Transacción registrada por {{ formattedMoney }} a las {{ formattedDatetime }}
+    </div>
+
     </Form>
   </div>
 </template>
@@ -85,6 +86,7 @@ import { useTransaction } from '@/composables/useTransactions'
 import { useClients } from '@/composables/useClients'
 import { useClientStore } from '@/stores/clientStore'
 import axios from 'axios'
+import { useFormatTransaction } from '@/composables/useFormatTransaction'
 
 // Props heredados desde el router (cliente y acción)
 const props = defineProps({
@@ -122,6 +124,11 @@ const validationSchema = yup.object({
 
 // Referencia al formulario y sus valores
 const { setFieldValue } = useForm()
+
+// Formato para datetime y money
+const { formatMoney, formatDate, formatCryptoName } = useFormatTransaction()
+const formattedMoney = computed(() => formatMoney(money.value))
+const formattedDatetime = computed(() => formatDate(datetime.value))
 
 // Función para calcular el valor en ARS cuando el usuario hace clic
 const convertirCrypto = async () => {

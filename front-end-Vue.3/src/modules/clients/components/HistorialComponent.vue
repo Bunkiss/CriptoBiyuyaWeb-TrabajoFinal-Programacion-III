@@ -7,31 +7,41 @@
           <th>Cripto</th>
           <th>Acción</th>
           <th>Monto</th>
-          <th>Dinero</th>
+          <th>ARS</th>
           <th>Fecha</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="tx in client.transactions" :key="tx.id">
-          <td>{{ tx.crypto_code }}</td>
-          <td>{{ tx.action }}</td>
+          <td>{{ formatCryptoName(tx.crypto_code) }}</td>
+          <td>{{ formatAction(tx.action) }}</td>
           <td>{{ tx.crypto_amount }}</td>
-          <td>{{ tx.money }}</td>
-          <td>{{ tx.datetime }}</td>
+          <td>{{ formatMoney(tx.money) }}</td>
+          <td>{{ formatDate(tx.datetime) }}</td>
           <!--boton VER-->
           <!--boton EDITAR-->
           <!--boton BORRAR-->
         </tr>
       </tbody>
     </table>
-    <p v-else>No hay transacciones para este cliente.</p>
+    <p v-else>El cliente no tiene transaciones realizadas.</p>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue';
 import { useClientStore } from '@/stores/clientStore';
+import { useFormatTransaction } from '@/composables/useFormatTransaction'
 
+// Carga de datos
 const store = useClientStore();
 const client = computed(() => store.selectedClient);
+
+// Formato de datos
+const {
+  formatMoney,
+  formatDate,
+  formatCryptoName,
+  formatAction,
+} = useFormatTransaction()
 </script>

@@ -1,7 +1,9 @@
 <template>
-  <Header></Header>
-  <RouterView></RouterView>
-  <Footer></Footer>
+  <div class="conteiner">
+    <Header class="header"></Header>
+    <RouterView class="main"></RouterView>
+    <Footer class="footer"></Footer>
+  </div>
 </template>
 
 <script setup>

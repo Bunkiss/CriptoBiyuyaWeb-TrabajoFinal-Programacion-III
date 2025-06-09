@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CriptoBiyuya")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2db1496495c172626e96e2abfb15de6ea9430037")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dfc72940901ebede937b36ddf3f6cfd13d3f74c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CriptoBiyuya")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CriptoBiyuya")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
