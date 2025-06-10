@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="conteiner">
     <ListClientsComponent />
     <HistorialComponent />
   </div>
@@ -11,7 +11,10 @@ import HistorialComponent from '../components/HistorialComponent.vue';
 </script>
 
 <style scoped>
-/*
-  Tomar de referencia la tabla de Biblioteca back-end MVC
-*/
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 </style>

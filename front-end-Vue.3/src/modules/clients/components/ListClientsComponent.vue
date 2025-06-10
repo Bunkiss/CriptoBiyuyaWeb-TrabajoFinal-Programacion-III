@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="conteiner">
     <label for="client">Seleccionar cliente:</label>
     <select id="client" v-model="clientStore.selectedClientId">
       <option disabled value="">-- Seleccione un cliente --</option>
@@ -18,7 +18,7 @@
           name: 'Transaction',
           query: { client_id: clientStore.selectedClientId, action: 'purchase' },
         }"
-        class="btn purchase"
+        class="btn"
       >
         Nueva Compra
       </RouterLink>
@@ -28,7 +28,7 @@
           name: 'Transaction',
           query: { client_id: clientStore.selectedClientId, action: 'sale' },
         }"
-        class="btn sale"
+        class="btn"
       >
         Nueva Venta
       </RouterLink>
@@ -52,23 +52,57 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.btn {
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
+.conteiner {
+  background-color: var(--bg-color-1);
+  margin: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 1200px;
+  height: 150px;
+}
+
+label {
+  display: block;
   font-weight: bold;
-  color: white;
-  cursor: pointer;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
 }
 
-.purchase {
-  background-color: #28a745; /* verde */
+input[type="number"],
+select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: var(--bg-color-1);
+  color: var(--success-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--success-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(53, 224, 10, 0.3);
 }
 
-.sale {
-  background-color: #dc3545; /* rojo */
+.btn {
+  padding: 8px 16px;
+  margin: 10px 5px;
+  font-size: 1rem;
+  background-color: var(--success-color);
+  color: var(--bg-color-1);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.664);
+  min-width: 90px;
+  text-align: center;
+  border: none;
+}
+.btn:hover {
+  background-color: rgb(53, 224, 10);
 }
 </style>
 

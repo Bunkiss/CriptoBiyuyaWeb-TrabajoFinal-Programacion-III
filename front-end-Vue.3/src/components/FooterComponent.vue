@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-main">
       <div class="footer-left">
-        <div class="footer-logo">Desde el Chip</div>
+        <div class="footer-logo">Cripto Biyuya</div>
         <a href="#">Soporte</a>
         <a href="#">Términos y condiciones</a>
       </div>
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 Desde el Chip. Todos los derechos reservados.
+      © 2025 Cripto Biyuya. Todos los derechos reservados.
     </div>
   </footer>
 </template>

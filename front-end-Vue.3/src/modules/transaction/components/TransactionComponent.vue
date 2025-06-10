@@ -1,11 +1,21 @@
 <template>
-  <div class="transaction-form">
-    <h2 class="text-xl mb-4">
+  <div class="form">
+    <h2 class="title">
       {{ isPurchase ? 'Nueva Compra' : 'Nueva Venta' }}
     </h2>
 
     <!-- Formulario validado con vee-validate -->
     <Form :validation-schema="validationSchema" @submit="onSubmit">
+      <!-- Selección de cliente -->
+      <div class="mb-4">
+        <label>Cliente:</label>
+        <Field name="client_id" as="select" class="border p-2 w-full">
+          <option v-for="client in clientStore.clients" :key="client.id" :value="client.id">
+            {{ client.name }}
+          </option>
+        </Field>
+        <ErrorMessage name="client_id" class="text-red-500 text-sm" />
+      </div>
       <!-- Selección de criptomoneda -->
       <div class="mb-4">
         <label>Criptomoneda:</label>
@@ -31,22 +41,11 @@
         <ErrorMessage name="crypto_amount" class="text-red-500 text-sm" />
       </div>
 
-      <!-- Selección de cliente -->
-      <div class="mb-4">
-        <label>Cliente:</label>
-        <Field name="client_id" as="select" class="border p-2 w-full">
-          <option v-for="client in clientStore.clients" :key="client.id" :value="client.id">
-            {{ client.name }}
-          </option>
-        </Field>
-        <ErrorMessage name="client_id" class="text-red-500 text-sm" />
-      </div>
-
       <!-- Botón para calcular el valor de la transacción -->
       <div class="mb-4">
         <button
           type="button"
-          class="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded"
+          class="btn-calc"
           @click="convertirCrypto"
           :disabled="!cryptoCode || !cryptoAmount"
         >
@@ -64,7 +63,7 @@
       <!-- Botón de envío -->
       <button
       type="submit"
-      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      class="btn-submit"
       >
       {{ isPurchase ? 'Comprar' : 'Vender' }}
     </button>
@@ -182,8 +181,66 @@ const onSubmit = async (values) => {
 </script>
 
 <style scoped>
-.transaction-form {
+.form {
+  background-color: var(--bg-color-1);
+  padding: 20px 30px;
+  margin: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8 10px rgba(0, 0, 0, 0.623);
+  width: 100%;
   max-width: 500px;
-  margin: auto;
 }
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.btn-submit, .btn-calc {
+  padding: 8px 16px;
+  margin: 10px;
+  font-size: 1rem;
+  background-color: var(--success-color);
+  color: var(--bg-color-1);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  min-width: 90px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.btn-calc:hover, .btn-submit:hover {
+  background-color: rgb(53, 224, 10);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: var(--bg-color-1);
+  color: var(--success-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--success-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(53, 224, 10, 0.3);
+}
+
 </style>

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Models\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -110,9 +110,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBMAAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T13:37:39.54Z",
               "EditorCaption": ""

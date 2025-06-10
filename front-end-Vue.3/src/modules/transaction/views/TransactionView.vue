@@ -18,9 +18,8 @@ const action = route.query.action
 
 <style scoped>
 .transaction-view {
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/*
-  Tomar de referencia del formulario de Biblioteca back-end MVC
-*/
 </style>
