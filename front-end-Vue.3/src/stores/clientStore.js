@@ -15,6 +15,11 @@ export const useClientStore = defineStore('clientStore', () => {
     selectedClientId.value = id;
   };
 
+  // POST Cliente
+  const addClient = (newClient) => {
+    clients.value.push(newClient);
+  };
+
   // Devuelve el objeto cliente completo según el ID seleccionado
   const selectedClient = computed(() =>
     clients.value.find(c => c.id === selectedClientId.value)
@@ -25,6 +30,7 @@ export const useClientStore = defineStore('clientStore', () => {
     selectedClientId,
     selectedClient,
     setClients,
-    setSelectedClientId
+    setSelectedClientId,
+    addClient
   };
 });

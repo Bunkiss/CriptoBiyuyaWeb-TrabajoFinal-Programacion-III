@@ -1,9 +1,10 @@
-﻿using CriptoBiyuya.DTOs;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using CriptoBiyuya.DTOs;
 using CriptoBiyuya.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Build.Framework;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace CriptoBiyuya.Controllers
 {
@@ -11,19 +12,17 @@ namespace CriptoBiyuya.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly AppDbContext _context; 
+        private readonly AppDbContext _context;
+
         public ClientController(AppDbContext context)
         {
             _context = context;
         }
 
-        /* -------- GET -------- */
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClientDTO>>> Get()
         {
             var clients = await _context.Clients.Include(x => x.transactions).ToListAsync();
-
             var clientsDTO = clients.Select(n => new ClientDTO
             {
                 id = n.id,
@@ -36,18 +35,19 @@ namespace CriptoBiyuya.Controllers
                     action = t.action,
                     crypto_amount = t.crypto_amount,
                     money = t.money,
-                    datetime = t.datetime,
-                }).ToList()
+                    datetime = t.datetime
+                }).ToList() ?? new List<TransactionDTO>()
             }).ToList();
 
             return Ok(clientsDTO);
         }
 
-        /* -------- POST -------- */
-
         [HttpPost]
-        public async Task<ActionResult<Client>> Post(ClientDTO clientDTO)
+        public async Task<ActionResult<ClientDTO>> Post([FromBody] ClientDTO clientDTO)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var client = new Client
             {
                 name = clientDTO.name,
@@ -57,25 +57,20 @@ namespace CriptoBiyuya.Controllers
             _context.Clients.Add(client);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(Get), new { id = client.id }, new ClientDTO
+            return CreatedAtAction(nameof(GetById), new { id = client.id }, new ClientDTO
             {
                 id = client.id,
                 name = client.name,
                 email = client.email
-            }); 
+            });
         }
 
-        /* -------- GET ById -------- */
-
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> Get(int id)
+        public async Task<ActionResult<ClientDTO>> GetById(int id)
         {
             var client = await _context.Clients.Include(x => x.transactions).FirstOrDefaultAsync(x => x.id == id);
 
-            if (client == null)
-            {
-                return NotFound();
-            }
+            if (client == null) return NotFound();
 
             var clientDTO = new ClientDTO
             {
@@ -90,43 +85,17 @@ namespace CriptoBiyuya.Controllers
                     crypto_amount = t.crypto_amount,
                     money = t.money,
                     datetime = t.datetime
-                }).ToList()
+                }).ToList() ?? new List<TransactionDTO>()
             };
 
             return Ok(clientDTO);
         }
 
-        /* -------- PUT -------- */
-        /*
-        [HttpPut("{id}")]
-        public async Task<ActionResult<Client>> Put(int id, ClientDTO clientDTO)
-        {
-            var client = await _context.Clients.FirstOrDefaultAsync(n => n.id == id);
-
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            client.name = clientDTO.name;
-            client.email = clientDTO.email;
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        } */
-
-        /* -------- DELETE -------- */
-
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Client>> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var client = await _context.Clients.FindAsync(id);
-
-            if (client == null)
-            {
-                return NotFound();
-            }
+            if (client == null) return NotFound();
 
             _context.Clients.Remove(client);
             await _context.SaveChangesAsync();

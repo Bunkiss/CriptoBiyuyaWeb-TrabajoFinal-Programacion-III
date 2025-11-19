@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CriptoBiyuya.Models.Client",
+        "Type": "CriptoBiyuya.DTOs.ClientDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -47,7 +47,7 @@
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
-    "Method": "Get",
+    "Method": "GetById",
     "RelativePath": "api/Client/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CriptoBiyuya.Models.Client",
+        "Type": "CriptoBiyuya.DTOs.ClientDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -85,17 +85,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "CriptoBiyuya.Models.Client",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
@@ -107,7 +97,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CriptoBiyuya.DTOs.TransactionDTO, CriptoBiyuya, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CriptoBiyuya.Models.Transaction, CriptoBiyuya, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -126,22 +116,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "transactionDTO",
+        "Name": "dto",
         "Type": "CriptoBiyuya.DTOs.TransactionDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "CriptoBiyuya.Models.Transaction",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
@@ -183,22 +163,12 @@
         "IsRequired": true
       },
       {
-        "Name": "transactionDTO",
+        "Name": "dto",
         "Type": "CriptoBiyuya.DTOs.TransactionDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "CriptoBiyuya.Models.Transaction",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
@@ -214,9 +184,25 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
+    "Method": "GetByClient",
+    "RelativePath": "api/Transaction/by-client/{clientId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clientId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "CriptoBiyuya.Models.Transaction",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CriptoBiyuya.Models.Transaction, CriptoBiyuya, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

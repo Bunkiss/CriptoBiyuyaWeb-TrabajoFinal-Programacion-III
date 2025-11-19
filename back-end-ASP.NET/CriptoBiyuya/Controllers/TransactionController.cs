@@ -1,8 +1,11 @@
-﻿using CriptoBiyuya.DTOs;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using CriptoBiyuya.Services;
+using CriptoBiyuya.DTOs;
 using CriptoBiyuya.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+
 
 namespace CriptoBiyuya.Controllers
 {
@@ -10,142 +13,112 @@ namespace CriptoBiyuya.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        public TransactionController(AppDbContext context)
-        {
-            _context = context;
-        }
+        private readonly ITransactionService _service;
 
-        /* -------- GET -------- */
+        public TransactionController(ITransactionService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TransactionDTO>>> Get()
+        public async Task<ActionResult<IEnumerable<Transaction>>> Get()
         {
-            var transactions = await _context.Transactions.ToListAsync();
-
-            var transactionsDTO = transactions.Select(n => new TransactionDTO
-            {
-                id = n.id,
-                crypto_code = n.crypto_code,
-                action = n.action,
-                crypto_amount = n.crypto_amount,
-                money = n.money,
-                datetime = n.datetime,
-                client_id = n.client_id
-            }).ToList();
-
-            return Ok(transactionsDTO);
+            var trans = await _service.GetAllAsync();
+            return Ok(trans);
         }
 
-        /* -------- POST -------- */
-
-        [HttpPost]
-        public async Task<ActionResult<Transaction>> Post(TransactionDTO transactionDTO)
+        [HttpGet("by-client/{clientId}")]
+        public async Task<ActionResult<IEnumerable<Transaction>>> GetByClient(int clientId)
         {
-            var client = await _context.Clients.FindAsync(transactionDTO.client_id);
-            if (client == null)
-            {
-                return NotFound("Cliente no encontrado");
-            }
-
-            var transaction = new Transaction
-            {
-                crypto_code = transactionDTO.crypto_code,
-                action = transactionDTO.action,
-                crypto_amount = transactionDTO.crypto_amount,
-                money = transactionDTO.money,
-                datetime = transactionDTO.datetime,
-                client_id = transactionDTO.client_id,
-                client = client
-            };
-
-            _context.Transactions.Add(transaction);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Get), new { id = transaction.id }, new TransactionDTO
-            {
-                id = transaction.id,
-                crypto_code = transaction.crypto_code,
-                action = transaction.action,
-                crypto_amount = transaction.crypto_amount,
-                money = transaction.money,
-                datetime = transaction.datetime,
-                client_id = transaction.client_id
-            });
+            var trans = await _service.GetByClientAsync(clientId);
+            return Ok(trans);
         }
-
-        /* -------- GET ById -------- */
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Transaction>> Get(int id)
         {
-            var transaction = await _context.Transactions.FirstOrDefaultAsync(x => x.id == id);
-
-            if (transaction == null)
-            {
-                return NotFound();
-            }
-
-            var transactionDTO = new TransactionDTO
-            {
-                id = transaction.id,
-                crypto_code = transaction.crypto_code,
-                action = transaction.action,
-                crypto_amount = transaction.crypto_amount,
-                money = transaction.money,
-                datetime = transaction.datetime,
-                client_id = transaction.client_id
-            };
-
-            return Ok(transactionDTO);
+            var trans = await _service.GetByIdAsync(id);
+            if (trans == null) return NotFound();
+            return Ok(trans);
         }
 
-        /* -------- PUT -------- */
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] TransactionDTO dto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+
+            try
+            {
+                var created = await _service.CreateAsync(dto);
+                var responseDto = new TransactionDTO
+                {
+                    id = created.id,
+                    crypto_code = created.crypto_code,
+                    action = created.action,
+                    crypto_amount = created.crypto_amount,
+                    money = created.money,
+                    datetime = created.datetime,
+                    client_id = created.client_id
+                };
+
+
+                return CreatedAtAction(nameof(Get), new { id = created.id }, responseDto);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Transaction>> Put(int id, TransactionDTO transactionDTO)
+        public async Task<IActionResult> Put(int id, [FromBody] TransactionDTO dto)
         {
-            var transaction = await _context.Transactions.FirstOrDefaultAsync(n => n.id == id);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            if (transaction == null)
+            try
             {
-                return NotFound();
+                await _service.UpdateAsync(id, dto);
+                return NoContent();
             }
-
-            var client = await _context.Clients.FindAsync(transactionDTO.client_id);
-            if (client == null)
+            catch (InvalidOperationException ex)
             {
-                return BadRequest("El cliente especificado no existe.");
+                return NotFound(ex.Message);
             }
-
-            transaction.crypto_code = transactionDTO.crypto_code;
-            transaction.action = transactionDTO.action;
-            transaction.crypto_amount = transactionDTO.crypto_amount;
-            transaction.money = transactionDTO.money;
-            transaction.datetime = transactionDTO.datetime;
-            transaction.client = client;
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
-        /* -------- DELETE -------- */
-
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Transaction>> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var transaction = await _context.Transactions.FindAsync(id);
-
-            if (transaction == null)
+            try
             {
-                return NotFound();
+                await _service.DeleteAsync(id);
+                return NoContent();
             }
-
-            _context.Transactions.Remove(transaction);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (InvalidOperationException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
