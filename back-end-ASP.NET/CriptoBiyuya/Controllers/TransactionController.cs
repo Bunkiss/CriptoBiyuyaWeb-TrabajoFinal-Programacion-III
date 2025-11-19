@@ -103,6 +103,15 @@ namespace CriptoBiyuya.Controllers
             }
         }
 
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> Patch(int id, [FromBody] TransPatchDTO dto)
+        {
+            var tx = await _service.PatchAsync(id, dto);
+            if (tx == null) return NotFound();
+
+            return Ok(tx);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -1,49 +1,29 @@
 [
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
-    "Method": "Get",
+    "Method": "GetAll",
     "RelativePath": "api/Client",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CriptoBiyuya.DTOs.ClientDTO, CriptoBiyuya, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
-    "Method": "Post",
+    "Method": "Create",
     "RelativePath": "api/Client",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "clientDTO",
+        "Name": "dto",
         "Type": "CriptoBiyuya.DTOs.ClientDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "CriptoBiyuya.DTOs.ClientDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
@@ -59,17 +39,28 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CriptoBiyuya.Controllers.ClientController",
+    "Method": "Update",
+    "RelativePath": "api/Client/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
         "Type": "CriptoBiyuya.DTOs.ClientDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "IsRequired": true
       }
-    ]
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.ClientController",
@@ -172,6 +163,27 @@
   },
   {
     "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
+    "Method": "Patch",
+    "RelativePath": "api/Transaction/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "CriptoBiyuya.DTOs.TransPatchDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CriptoBiyuya.Controllers.TransactionController",
     "Method": "Delete",
     "RelativePath": "api/Transaction/{id}",
     "HttpMethod": "DELETE",
@@ -211,26 +223,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "CriptoBiyuya.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CriptoBiyuya.WeatherForecast, CriptoBiyuya, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

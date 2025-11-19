@@ -18,6 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 builder.Services.AddHttpClient<ICriptoYaService, CriptoYaService>();
 builder.Services.AddScoped<ITransactionService, TransactionService>();
+builder.Services.AddScoped<IClientService, ClientService>();
 
 builder.Services.AddCors(options => //  --  POLITICA TEMPORAL  --
 {

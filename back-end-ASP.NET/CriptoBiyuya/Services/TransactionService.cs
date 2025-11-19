@@ -93,6 +93,29 @@ namespace CriptoBiyuya.Services
 
             await _context.SaveChangesAsync();
         }
+        public async Task<Transaction?> PatchAsync(int id, TransPatchDTO dto)
+        {
+            var tx = await _context.Transactions.FindAsync(id);
+            if (tx == null) return null;
+
+            if (dto.Action != null)
+                tx.action = dto.Action;
+
+            if (dto.CryptoCode != null)
+                tx.crypto_code = dto.CryptoCode;
+
+            if (dto.Money.HasValue)
+                tx.money = dto.Money.Value;
+
+            if (dto.DateTime.HasValue)
+                tx.datetime = dto.DateTime.Value;
+
+            if (dto.ClientId.HasValue)
+                tx.client_id = dto.ClientId.Value;
+
+            await _context.SaveChangesAsync();
+            return tx;
+        }
 
         public async Task DeleteAsync(int id)
         {

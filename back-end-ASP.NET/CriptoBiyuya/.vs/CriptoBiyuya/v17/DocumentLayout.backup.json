@@ -3,44 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\criptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\criptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\icriptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\icriptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\dtos\\transpatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:dtos\\transpatchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\clientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\clientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\iclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\iclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\dtos\\clientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:dtos\\clientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\dtos\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:dtos\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:controllers\\clientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\criptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\criptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|c:\\users\\mestas\\programaci\u00F3n\\criptobiyuyaweb-trabajofinal-programacion-iii\\back-end-asp.net\\criptobiyuya\\services\\icriptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B50D02-2A35-48A2-A06D-C604894DFBFA}|CriptoBiyuya.csproj|solutionrelative:services\\icriptoyaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,8 +62,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClientService.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ClientService.cs",
+              "RelativeDocumentMoniker": "Services\\ClientService.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ClientService.cs",
+              "RelativeToolTip": "Services\\ClientService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwDgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-19T13:13:06.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "Controllers\\TransactionController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAmwHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:21:41.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\TransactionService.cs",
+              "RelativeToolTip": "Services\\TransactionService.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:13:29.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ITransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\ITransactionService.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ITransactionService.cs",
+              "RelativeToolTip": "Services\\ITransactionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:12:32.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CriptoYaService.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\CriptoYaService.cs",
+              "RelativeDocumentMoniker": "Services\\CriptoYaService.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\CriptoYaService.cs",
+              "RelativeToolTip": "Services\\CriptoYaService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:10:50.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientController.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\ClientController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientController.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\ClientController.cs",
+              "RelativeToolTip": "Controllers\\ClientController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:54:46.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\ClientDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\ClientDTO.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\ClientDTO.cs",
+              "RelativeToolTip": "DTOs\\ClientDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:07:00.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T13:24:54.471Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -66,77 +179,32 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "TransPatchDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\TransPatchDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\TransPatchDTO.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\TransPatchDTO.cs",
+              "RelativeToolTip": "DTOs\\TransPatchDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:24:54.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T13:15:43.372Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "TransactionController.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\TransactionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\TransactionController.cs",
-              "RelativeToolTip": "Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Title": "IClientService.cs",
+              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\IClientService.cs",
+              "RelativeDocumentMoniker": "Services\\IClientService.cs",
+              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\IClientService.cs",
+              "RelativeToolTip": "Services\\IClientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:21:41.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-19T13:24:33.626Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\TransactionService.cs",
-              "RelativeDocumentMoniker": "Services\\TransactionService.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\TransactionService.cs",
-              "RelativeToolTip": "Services\\TransactionService.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowHUAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:13:29.823Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ITransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ITransactionService.cs",
-              "RelativeDocumentMoniker": "Services\\ITransactionService.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ITransactionService.cs",
-              "RelativeToolTip": "Services\\ITransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:12:32.116Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CriptoYaService.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\CriptoYaService.cs",
-              "RelativeDocumentMoniker": "Services\\CriptoYaService.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\CriptoYaService.cs",
-              "RelativeToolTip": "Services\\CriptoYaService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAIwCUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:10:50.541Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "ICriptoYaService.cs",
               "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Services\\ICriptoYaService.cs",
               "RelativeDocumentMoniker": "Services\\ICriptoYaService.cs",
@@ -144,47 +212,19 @@
               "RelativeToolTip": "Services\\ICriptoYaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:10:08.279Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T13:10:08.279Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "TransactionDTO.cs",
               "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\TransactionDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\TransactionDTO.cs",
               "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\TransactionDTO.cs",
               "RelativeToolTip": "DTOs\\TransactionDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:07:42.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ClientDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\ClientDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\ClientDTO.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\DTOs\\ClientDTO.cs",
-              "RelativeToolTip": "DTOs\\ClientDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T13:07:00.987Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ClientController.cs",
-              "DocumentMoniker": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\ClientController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ClientController.cs",
-              "ToolTip": "C:\\Users\\Mestas\\Programaci\u00F3n\\CriptoBiyuyaWeb-TrabajoFinal-Programacion-III\\back-end-ASP.NET\\CriptoBiyuya\\Controllers\\ClientController.cs",
-              "RelativeToolTip": "Controllers\\ClientController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T13:54:46.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T13:07:42.106Z"
             }
           ]
         }

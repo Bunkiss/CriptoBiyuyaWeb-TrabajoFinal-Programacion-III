@@ -1,105 +1,55 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using CriptoBiyuya.Services;
 using CriptoBiyuya.DTOs;
-using CriptoBiyuya.Models;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace CriptoBiyuya.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ClientController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IClientService _service;
 
-        public ClientController(AppDbContext context)
+        public ClientController(IClientService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClientDTO>>> Get()
+        public async Task<IActionResult> GetAll()
         {
-            var clients = await _context.Clients.Include(x => x.transactions).ToListAsync();
-            var clientsDTO = clients.Select(n => new ClientDTO
-            {
-                id = n.id,
-                email = n.email,
-                name = n.name,
-                transactions = n.transactions?.Select(t => new TransactionDTO
-                {
-                    id = t.id,
-                    crypto_code = t.crypto_code,
-                    action = t.action,
-                    crypto_amount = t.crypto_amount,
-                    money = t.money,
-                    datetime = t.datetime
-                }).ToList() ?? new List<TransactionDTO>()
-            }).ToList();
-
-            return Ok(clientsDTO);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<ClientDTO>> Post([FromBody] ClientDTO clientDTO)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var client = new Client
-            {
-                name = clientDTO.name,
-                email = clientDTO.email
-            };
-
-            _context.Clients.Add(client);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetById), new { id = client.id }, new ClientDTO
-            {
-                id = client.id,
-                name = client.name,
-                email = client.email
-            });
+            var list = await _service.GetAllAsync();
+            return Ok(list);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClientDTO>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var client = await _context.Clients.Include(x => x.transactions).FirstOrDefaultAsync(x => x.id == id);
+            var client = await _service.GetByIdAsync(id);
+            if (client == null)
+                return NotFound();
 
-            if (client == null) return NotFound();
+            return Ok(client);
+        }
 
-            var clientDTO = new ClientDTO
-            {
-                id = client.id,
-                name = client.name,
-                email = client.email,
-                transactions = client.transactions?.Select(t => new TransactionDTO
-                {
-                    id = t.id,
-                    crypto_code = t.crypto_code,
-                    action = t.action,
-                    crypto_amount = t.crypto_amount,
-                    money = t.money,
-                    datetime = t.datetime
-                }).ToList() ?? new List<TransactionDTO>()
-            };
+        [HttpPost]
+        public async Task<IActionResult> Create(ClientDTO dto)
+        {
+            var created = await _service.CreateAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = created.id }, created);
+        }
 
-            return Ok(clientDTO);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, ClientDTO dto)
+        {
+            await _service.UpdateAsync(id, dto);
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var client = await _context.Clients.FindAsync(id);
-            if (client == null) return NotFound();
-
-            _context.Clients.Remove(client);
-            await _context.SaveChangesAsync();
-
+            await _service.DeleteAsync(id);
             return NoContent();
         }
     }

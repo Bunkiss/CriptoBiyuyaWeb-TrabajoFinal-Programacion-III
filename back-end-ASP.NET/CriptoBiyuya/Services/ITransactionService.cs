@@ -13,6 +13,7 @@ namespace CriptoBiyuya.Services
         Task<List<Transaction>> GetByClientAsync(int clientId);
         Task UpdateAsync(int id, TransactionDTO dto);
         Task DeleteAsync(int id);
+        Task<Transaction?> PatchAsync(int id, TransPatchDTO dto); 
         Task<decimal> GetBalanceAsync(int clientId, string cryptoCode);
     }
 }
