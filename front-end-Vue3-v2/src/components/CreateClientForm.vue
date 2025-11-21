@@ -1,0 +1,101 @@
+<template>
+  <form @submit.prevent="handleSubmit_proxy" class="space-y-4">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+        Nombre y Apellido
+      </label>
+      <input
+        id="name"
+        v-model="name"
+        type="text"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        :class="{ 'border-red-500': nameErrors.length > 0 }"
+        placeholder="Ingrese el nombre completo"
+      />
+      <div v-if="nameErrors.length > 0" class="text-red-600 text-sm mt-1">
+        {{ nameErrors[0] }}
+      </div>
+    </div>
+
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+        Email
+      </label>
+      <input
+        id="email"
+        v-model="email"
+        type="email"
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        :class="{ 'border-red-500': emailErrors.length > 0 }"
+        placeholder="correo@ejemplo.com"
+      />
+      <div v-if="emailErrors.length > 0" class="text-red-600 text-sm mt-1">
+        {{ emailErrors[0] }}
+      </div>
+    </div>
+
+    <div v-if="apiError" class="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+      {{ apiError }}
+    </div>
+
+    <button
+      type="submit"
+      :disabled="isLoading"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+    >
+      {{ isLoading ? '⏳ Creando...' : 'Crear Cliente' }}
+    </button>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useForm, useField } from 'vee-validate'
+import { clientSchema } from '../composables/schemas'
+import { useClientStore } from '../stores/clientStore'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const clientStore = useClientStore()
+
+const { handleSubmit, errors } = useForm({
+  validationSchema: clientSchema,
+})
+
+const { value: name } = useField('name')
+const { value: email } = useField('email')
+
+const isLoading = ref(false)
+const apiError = ref(null)
+
+const nameErrors = ref([])
+const emailErrors = ref([])
+
+const onSubmit = handleSubmit(async (values) => {
+  isLoading.value = true
+  apiError.value = null
+  nameErrors.value = []
+  emailErrors.value = []
+
+  try {
+    await clientStore.create({
+      name: values.name,
+      email: values.email,
+    })
+    router.push('/transactions/history')
+  } catch (err) {
+    apiError.value = err.response?.data?.message || 'Error al crear el cliente'
+  } finally {
+    isLoading.value = false
+  }
+})
+
+const handleSubmit_proxy = async () => {
+  nameErrors.value = errors.name ? [errors.name] : []
+  emailErrors.value = errors.email ? [errors.email] : []
+
+  if (nameErrors.value.length === 0 && emailErrors.value.length === 0) {
+    await onSubmit()
+  }
+}
+</script>
