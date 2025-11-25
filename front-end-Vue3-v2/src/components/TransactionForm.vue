@@ -8,8 +8,8 @@
         <select
           id="client"
           v-model="clientId"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :class="{ 'border-red-500': clientErrors.length > 0 }"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          :class="{ 'border-red-500': errors.clientId }"
           :disabled="isLoading"
         >
           <option value="">Seleccionar cliente...</option>
@@ -17,8 +17,8 @@
             {{ client.name }}
           </option>
         </select>
-        <div v-if="clientErrors.length > 0" class="text-red-600 text-sm mt-1">
-          {{ clientErrors[0] }}
+        <div v-if="errors.clientId" class="text-red-600 text-sm mt-1">
+          {{ errors.clientId }}
         </div>
       </div>
 
@@ -29,8 +29,8 @@
         <select
           id="crypto"
           v-model="cryptoCode"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :class="{ 'border-red-500': cryptoErrors.length > 0 }"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          :class="{ 'border-red-500': errors.cryptoCode }"
           :disabled="isLoading"
         >
           <option value="">Seleccionar criptomoneda...</option>
@@ -38,8 +38,8 @@
             {{ crypto.label }}
           </option>
         </select>
-        <div v-if="cryptoErrors.length > 0" class="text-red-600 text-sm mt-1">
-          {{ cryptoErrors[0] }}
+        <div v-if="errors.cryptoCode" class="text-red-600 text-sm mt-1">
+          {{ errors.cryptoCode }}
         </div>
       </div>
     </div>
@@ -55,12 +55,12 @@
           type="number"
           step="0.00000001"
           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :class="{ 'border-red-500': amountErrors.length > 0 }"
+          :class="{ 'border-red-500': errors.cryptoAmount }"
           placeholder="0.00000000"
           :disabled="isLoading"
         />
-        <div v-if="amountErrors.length > 0" class="text-red-600 text-sm mt-1">
-          {{ amountErrors[0] }}
+        <div v-if="errors.cryptoAmount" class="text-red-600 text-sm mt-1">
+          {{ errors.cryptoAmount }}
         </div>
       </div>
 
@@ -72,12 +72,12 @@
           id="datetime"
           v-model="datetime"
           type="datetime-local"
-          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          :class="{ 'border-red-500': datetimeErrors.length > 0 }"
+          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+          :class="{ 'border-red-500': errors.datetime }"
           :disabled="isLoading"
         />
-        <div v-if="datetimeErrors.length > 0" class="text-red-600 text-sm mt-1">
-          {{ datetimeErrors[0] }}
+        <div v-if="errors.datetime" class="text-red-600 text-sm mt-1">
+          {{ errors.datetime }}
         </div>
       </div>
     </div>
@@ -89,14 +89,14 @@
     <div class="flex gap-2 pt-4">
       <button
         type="submit"
-        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
         :disabled="isLoading"
       >
         {{ isLoading ? '⏳ Procesando...' : submitText }}
       </button>
       <button 
         type="button" 
-        class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
+        class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
         @click="$emit('cancel')" 
         :disabled="isLoading"
       >
@@ -148,20 +148,10 @@ const { value: cryptoCode } = useField('cryptoCode')
 const { value: cryptoAmount } = useField('cryptoAmount')
 const { value: datetime } = useField('datetime')
 
-const clientErrors = ref([])
-const cryptoErrors = ref([])
-const amountErrors = ref([])
-const datetimeErrors = ref([])
-
 const isLoading = ref(false)
 const apiError = ref(null)
 
 const handleFormSubmit = handleSubmit(async (values) => {
-  clientErrors.value = []
-  cryptoErrors.value = []
-  amountErrors.value = []
-  datetimeErrors.value = []
-
   isLoading.value = true
   apiError.value = null
 
